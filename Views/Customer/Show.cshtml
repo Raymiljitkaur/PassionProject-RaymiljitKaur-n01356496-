@@ -1,0 +1,17 @@
+﻿@model ElectronicStore.Models.Customer
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div class="navbar">
+    <a class="navlink" href="/Customer/List">Back to List</a>
+    <a class="navlink" href="/Customer/Update/@Model.CustomerID">Update</a>
+    <a class="navlink" href="/Customer/DeleteConfirm/@Model.CustomerID">Delete</a>
+</div>
+<div class="col2">
+    <div><span>Customer Name:</span> @Model.CustomerName</div>
+    <div><span>Customer Email:</span>@Model.CustomerEmail</div>
+    <div><span>Customer Phone:</span> @Model.CustomerAddress</div>
+   
+</div>

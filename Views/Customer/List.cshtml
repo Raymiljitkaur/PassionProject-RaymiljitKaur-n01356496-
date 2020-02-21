@@ -1,0 +1,27 @@
+﻿@model List<ElectronicStore.Models.Customer>
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div class="navbar">
+    <a href="/Customer/Add">Add New</a>
+</div>
+<form method="GET" action="/Customer/List">
+    <input type="text" id="customersearchkey" name="customersearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="tilecontainer">
+    @{
+        foreach (var Customer in @Model)
+        {
+
+            <div class="listitem">
+                <a href="/Customer/Show/@Customer.CustomerID">@Customer.CustomerName"</a>
+                <a class="cta" href="/Brand/Update/@Customer.CustomerID">Update</a>
+            </div>
+        }
+    }
+</div>

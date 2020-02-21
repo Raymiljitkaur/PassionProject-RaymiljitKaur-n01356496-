@@ -1,0 +1,59 @@
+﻿
+@model ElectronicStore.Models.ViewModels.ShowOrders
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>@Model.order.OrderName</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Order/List">Back to List</a>
+    <a class="navlink" href="/Order/Update/@Model.order.OrderID">Update</a>
+    <a class="navlink" href="/Order/DeleteConfirm/@Model.order.OrderID">Delete</a>
+</div>
+<div>
+    <div class="col2">
+        <div><span>Order Name:</span> @Model.order.OrderName</div>
+        <div><span>Payment Type:</span>@Model.order.OrderPayType</div>
+        <div><span>Order Date:</span> @Model.order.OrderDate</div>
+        <div><span>Order Cost:</span>@Model.order.OrderCost</div>
+       
+
+    </div>
+    <div class="col2last">
+        <div class="sectionheader">Electronics Ordered:</div>
+        @{
+
+            foreach (var electronic in @Model.Electronics)
+            {
+                <div class="lineitem">
+                    <a href="/Electronic/Show/@electronic.ElectronicID">@electronic.ElectronicName</a>
+                    @{
+                       
+                    }
+                    <a href="/Order/Detachelectronic/@Model.order.OrderID?ElectronicID=@electronic.ElectronicID">
+                        Remove Electronic
+                    </a>
+                </div>
+            }
+
+        }
+        <form method="post" action="/Order/Attachelectronic/@Model.order.OrderID">
+            <select name="ElectronicID" id="ElectronicID">
+                @{
+                  
+
+                    foreach (var electronic in Model.all_electronics)
+                    {
+                        <option value="@electronic.ElectronicID">
+                            @electronic.ElectronicName (@electronic.Brands.BrandName)
+                        </option>
+                    }
+                }
+            </select>
+            <input type="submit" value="Add Electronic" />
+        </form>
+
+    </div>
+    <div style="clear:both;"></div>
+</div>

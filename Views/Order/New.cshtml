@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Order</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Order/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/Order/Add">
+            <div class="inpfield"><span>Order Name:</span><input type="text" name="OrderName" id="OrderName" /></div>
+            <div class="inpfield"><span>Payment Type:</span><input type="text" name="OrderPayType" id="OrderPayType" /></div>
+            <div class="inpfield"><span>Order Date:</span><input type="text" name="OrderDate" id="OrderDate" /></div>
+            <div class="inpfield"><span>Order Cost:</span><input type="text" name="OrderCost" id="OrderCost" /></div>
+            @*<div class="inpfield">
+                <span>Customer:</span>
+                <select id="CustomerID" type="text" name="CustomerID">
+                    @{
+                        
+                        foreach (var Customers in Model)
+                        {
+                            <option value="@Customers.CustomerID">@Customers.CustomerName</option>
+
+                        }
+                    }
+                </select>
+            </div>*@
+            <input type="submit" value="Add Order" />
+        </form>
+    </div>
+    <div class="col2last"></div>
+    <div style="clear:both;"></div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model ElectronicStore.Models.ViewModels.UpdateElectronics
+
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+<div class="navbar">
+    <a href="/Electronic/List">Back to List</a>
+</div>
+
+<form action="/Electronic/Update/@Model.Electronics.ElectronicID" method="POST">
+
+    <div class="inpfield"><span>Electronic Name: </span><input type="text" value="@Model.Electronics.ElectronicName" id="ElectronicName" name="ElectronicName" /> </div>
+    <div class="inpfield"><span>Electronic Color: </span><input type="text" value="@Model.Electronics.ElectronicColor" id="ElectronicColor" name="ElectronicColor" /> </div>
+    <div class="inpfield"><span>Electronic Type: </span><input type="text" value="@Model.Electronics.ElectronicType" id="ElectronicType" name="ElectronicType" /> </div>
+    <div class="inpfield">
+        <span>Electronic Brands: </span>
+        <select id="ElectronicBrandID" name="BrandID">
+            @foreach (var brands in Model.Brands)
+            {
+                var selected = "";
+                if (Model.Electronics.BrandID == brands.BrandID)
+                {
+                    selected = "selected";
+                }
+                <option value="@brands.BrandID" @selected>@brands.BrandName</option>
+            }
+        </select>
+    </div>
+
+    <div class="inpfield">
+        <span>Electronic Description</span>
+        <textarea id="ElectronicDescription" name="ElectronicDescription">@Model.Electronics.ElectronicDescription</textarea>
+    </div>
+    <div class="inpfield"><input type="submit" value="Update Electronic" /></div>
+
+</form>

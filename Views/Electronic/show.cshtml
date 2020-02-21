@@ -1,0 +1,44 @@
+﻿@model ElectronicStore.Models.ViewModels.ShowElectronics
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show Electronic</h2>
+<div class="navbar">
+    <a class="navlink" href="/Electronic/List">Back to List</a>
+    <a class="navlink" href="/Electronic/Update/@Model.Electronics.ElectronicID">Update</a>
+    <a class="navlink" href="/Electronic/DeleteConfirm/@Model.Electronics.ElectronicID">Delete</a>
+</div>
+<div>
+
+    <div class="col2">
+
+        <div>Name : @Model.Electronics.ElectronicName</div>
+        <div>Type : @(Model.Electronics.ElectronicType)</div>
+        <div>Brands : @Model.Electronics.Brands.BrandName</div>
+        <div>Color : @Model.Electronics.ElectronicColor</div>
+        <div>
+            Notes :
+            <div class="notepad">
+                @Model.Electronics.ElectronicDescription
+            </div>
+        </div>
+
+    </div>
+    <div class="col2last">
+        <div class="sectionheader">Orders:</div>
+        @{
+
+            foreach (var order in @Model.orders)
+            {
+                <div class="lineitem">
+                    <a href="/Order/Show/@order.OrderID">@order.OrderName, @order.OrderPayType</a>
+                </div>
+            }
+
+
+        }
+    </div>
+    <div style="clear:both;"></div>
+</div>

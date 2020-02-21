@@ -1,0 +1,32 @@
+﻿@model List<ElectronicStore.Models.Electronic>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Electronics</h2>
+<div class="navbar">
+    <a class="navlink" href="/Electronic/Add">Add New</a>
+</div>
+<form action="/Electronic/List" method="GET">
+    <input type="text" name="Electronicsearchkey" id="Electronicsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="tilecontainer">
+    @{
+        foreach (var Electronic in Model)
+        {
+            <div class="listitem">
+
+                <div class="itemdetails">
+                    <div class="listcat"><a href="/Electronic/Show/@Electronic.ElectronicID">@Electronic.ElectronicName</a></div>
+                    <div class="listcat">Brands : <span>@Electronic.Brands.BrandName</span></div>
+                    <div class="listcat">Type : <span>@Electronic.ElectronicType</span></div>
+                    <span class="cta"><a href="/Electronic/Update/@Electronic.ElectronicID">Update</a></span>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        }
+    }
+    <div style="clear:both;"></div>
+</div>

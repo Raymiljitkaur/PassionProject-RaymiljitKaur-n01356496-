@@ -1,0 +1,25 @@
+﻿@model List<ElectronicStore.Models.Order>
+
+
+@{
+    ViewBag.Title = "List";
+}
+<h2>List of Orders</h2>
+<div class="navbar">
+    <a class="navlink" href="/Order/New">Add New</a>
+</div>
+<form method="GET" action="/Order/List">
+    <input type="text" id="ordersearchkey" name="ordersearchkey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="tilecontainer">
+    @foreach (var order in @Model)
+    {
+    <div class="listitem">
+        <div><a href="/Order/Show/@order.OrderID">@order.OrderName</a></div>
+        <div>Payment Type: @order.OrderPayType</div>
+        <div>Order Date: @order.OrderDate</div>
+        <div>Order Cost: @order.OrderCost</div>
+    </div>
+    }
+</div>

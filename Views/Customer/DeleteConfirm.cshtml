@@ -1,0 +1,12 @@
+﻿@model ElectronicStore.Models.Customer
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete @Model.CustomerName?</h2>
+<div class="navbar">
+    <a href="/Customer/Show/@Model.CustomerID">Cancel</a>
+</div>
+<form method="POST" action="/Customer/Delete/@Model.CustomerID">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form>
