@@ -2,11 +2,13 @@
 @{
     ViewBag.Title = "DeleteConfirm";
 }
-
+<!-- The functionality to delete the customer uses this interface -->
 <h2>Are you sure you want to delete @Model.CustomerName?</h2>
+<!-- Here the customer is asked for the confirmation of and if they cancel then they are directed back to the show page-->
 <div class="navbar">
     <a href="/Customer/Show/@Model.CustomerID">Cancel</a>
 </div>
+<!--here the customer is deleted according to the id selected-->
 <form method="POST" action="/Customer/Delete/@Model.CustomerID">
     <div class="inpfield"><input type="submit" value="Confirm" /></div>
 </form>

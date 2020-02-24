@@ -2,9 +2,8 @@
 @{
     ViewBag.Title = "New";
 }
-
+<!--Here we are adding new order and the values will be submitted using post method -->
 <h2>New Order</h2>
-
 <div class="navbar">
     <a class="navlink" href="/Order/List">Back to List</a>
 </div>
@@ -13,8 +12,8 @@
         <form method="post" action="/Order/Add">
             <div class="inpfield"><span>Order Name:</span><input type="text" name="OrderName" id="OrderName" /></div>
             <div class="inpfield"><span>Payment Type:</span><input type="text" name="OrderPayType" id="OrderPayType" /></div>
-            <div class="inpfield"><span>Order Date:</span><input type="text" name="OrderDate" id="OrderDate" /></div>
-            <div class="inpfield"><span>Order Cost:</span><input type="text" name="OrderCost" id="OrderCost" /></div>
+            <div class="inpfield"><span>Order Date:(dd/mm/yyyy)</span><input type="text" name="OrderDate" id="OrderDate" /></div>
+            <div class="inpfield"><span>Order Cost:(canadian dollars)</span><input type="text" name="OrderCost" id="OrderCost" /></div>
             @*<div class="inpfield">
                 <span>Customer:</span>
                 <select id="CustomerID" type="text" name="CustomerID">

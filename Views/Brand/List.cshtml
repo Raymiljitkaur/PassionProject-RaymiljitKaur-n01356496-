@@ -1,15 +1,17 @@
 ﻿@model List<ElectronicStore.Models.Brands>
-
-
 @{
     ViewBag.Title = "List";
 }
 
 <h2>List</h2>
+@*HERE WE ARE ADDING A LINK TO ADD NEW BRAND*@ 
 <div class="navbar">
     <a href="/Brand/Add">Add New</a>
 </div>
+<!--Here we are using from to get values for the brand list fot the search 
+functionality and to provide result for search we need to use get method.-->
 <form method="GET" action="/Brand/List">
+    <a href="/Brand/List">Back to List</a>
     <input type="text" id="brandsearchkey" name="brandsearchkey" />
     <input type="submit" value="Search" />
 </form>

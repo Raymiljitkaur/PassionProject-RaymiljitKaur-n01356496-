@@ -17,12 +17,14 @@ namespace GadgetStore.Data
 {
     public class BrandController : Controller
     {
+        //to provide a connection to the database
         private ElectronicContext db = new ElectronicContext();
         //to get brands
         public ActionResult Index()
         {
             return View();
         }
+        // to provide the list of the brands to list link and also to add the search functionality for thr brands
         public ActionResult List(string brandsearchkey)
         {
             Debug.WriteLine("The parameter is " + brandsearchkey);
@@ -33,25 +35,30 @@ namespace GadgetStore.Data
                 query = query + " where BrandName like '%" + brandsearchkey + "%'";
             }
 
-            //what data do we need?
+            //we need a brand list to search from 
             List<Brands> brands = db.Brands.SqlQuery(query).ToList();
 
             return View(brands);
         }
-        public ActionResult Add()
-        {
-           
-            return View();
-        }
+        // to add a new brand
+       // this to pull the data from the divs
         [HttpPost]
         public ActionResult Add(string BrandName)
         {
-            string query = "insert into brands (BrandName) values (@BrandName)";
+            string query = "insert into brands (BrandName) values (@BrandName)";//database query
             var parameter = new SqlParameter("@BrandName", BrandName);
 
             db.Database.ExecuteSqlCommand(query, parameter);
             return RedirectToAction("List");
         }
+        // this is to push data to the database
+        public ActionResult Add()
+        {
+
+            return View();
+        }
+        //to update the brand
+        // here we are getting information about the particular brand
         public ActionResult Update(int id)
         {
             string query = "select * from brands where BrandID = @id";
@@ -60,6 +67,7 @@ namespace GadgetStore.Data
 
             return View(selectedbrands);
         }
+        //here we are updating the information and also updating them in database.
         [HttpPost]
         public ActionResult Update(int id, string BrandName)
         {
@@ -71,14 +79,18 @@ namespace GadgetStore.Data
 
             return RedirectToAction("List");
         }
+        // to show the deatils of brand
         public ActionResult Show(int id)
         {
-            string query = "select * from brands where BrandID = @id";
+            string query = "select * from brands where BrandID = @id";// database query
             var parameter = new SqlParameter("@id", id);
             Brands selectedbrands = db.Brands.SqlQuery(query, parameter).FirstOrDefault();
 
             return View(selectedbrands);
         }
+        // here we are trying to delete the brand
+        // to confirm if they want to delete 
+        // here only a particular brand is selected .
         public ActionResult DeleteConfirm(int id)
         {
             string query = "select * from brands where BrandID=@id";
@@ -86,6 +98,7 @@ namespace GadgetStore.Data
             Brands selectedbrands = db.Brands.SqlQuery(query, param).FirstOrDefault();
             return View(selectedbrands);
         }
+        // here the brand will be deleted if this function is called
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -94,11 +107,11 @@ namespace GadgetStore.Data
             db.Database.ExecuteSqlCommand(query, param);
 
 
-         
+         // here the database will be updated after the deletion of a entry.
             string refquery = "update electronics set BrandID = '' where BrandID=@id";
             db.Database.ExecuteSqlCommand(refquery, param); 
 
-            return RedirectToAction("List");
+            return RedirectToAction("List");// go back to the list 
         }
     }
 }

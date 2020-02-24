@@ -3,15 +3,15 @@
 @{
     ViewBag.Title = "New";
 }
-
+<!--To show details of every order along with details of the electronics that have been added to the order-->
 <h2>@Model.order.OrderName</h2>
-
 <div class="navbar">
     <a class="navlink" href="/Order/List">Back to List</a>
     <a class="navlink" href="/Order/Update/@Model.order.OrderID">Update</a>
     <a class="navlink" href="/Order/DeleteConfirm/@Model.order.OrderID">Delete</a>
 </div>
 <div>
+    <!--Here it is showing details of the order -->
     <div class="col2">
         <div><span>Order Name:</span> @Model.order.OrderName</div>
         <div><span>Payment Type:</span>@Model.order.OrderPayType</div>
@@ -20,6 +20,7 @@
        
 
     </div>
+    <!--here it is showing details of the electronics that have been added to the order (many to many relation -->
     <div class="col2last">
         <div class="sectionheader">Electronics Ordered:</div>
         @{
@@ -27,17 +28,18 @@
             foreach (var electronic in @Model.Electronics)
             {
                 <div class="lineitem">
-                    <a href="/Electronic/Show/@electronic.ElectronicID">@electronic.ElectronicName</a>
+                    <a href="/Electronic/Show/@electronic.ElectronicID">@electronic.ElectronicName</a><!--To display electronic added-->
                     @{
                        
                     }
-                    <a href="/Order/Detachelectronic/@Model.order.OrderID?ElectronicID=@electronic.ElectronicID">
+                    <a href="/Order/Detachelectronic/@Model.order.OrderID?ElectronicID=@electronic.ElectronicID"><!--To remove a electronic-->
                         Remove Electronic
                     </a>
                 </div>
             }
 
         }
+        <!--To add a electronic from the list of electronics-->
         <form method="post" action="/Order/Attachelectronic/@Model.order.OrderID">
             <select name="ElectronicID" id="ElectronicID">
                 @{

@@ -3,15 +3,19 @@
 @{
     ViewBag.Title = "List";
 }
-
+<!--Here all the electronics present in the database are displayed in the form of the list-->
 <h2>List of Electronics</h2>
+<!--Link to add new electronics-->
 <div class="navbar">
     <a class="navlink" href="/Electronic/Add">Add New</a>
 </div>
+<!--the search fuctionality for the electronics-->
 <form action="/Electronic/List" method="GET">
+    <a class="navlink" href="/Electronic/List">Back to List</a>
     <input type="text" name="Electronicsearchkey" id="Electronicsearchkey" />
     <input type="submit" value="Search" />
 </form>
+<!--To display all the electronics that have already been added-->
 <div class="tilecontainer">
     @{
         foreach (var Electronic in Model)

@@ -2,10 +2,10 @@
 @{
     ViewBag.Title = "Update";
 }
-
+<!-- Here we are using interface  to update the brandname for particuar brand -->
 <h2>Update @Model.BrandName</h2>
 <a href="/Brand/List">Back to List</a>
-
+<!-- The form takes in a brand value and then updates it then submits on the brandid-->
 <form method="post" action="/Brand/Update/@Model.BrandID">
     <input type="text" id="BrandName" name="BrandName" value="@Model.BrandName" />
     <input type="submit" value="update Brands" />

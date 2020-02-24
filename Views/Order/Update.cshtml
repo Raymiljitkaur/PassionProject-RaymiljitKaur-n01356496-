@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "New";
 }
-
+<!--Here we are updating the details of  the order that has alredy been placed-->
 <h2>Order:</h2>
 
 <div class="navbar">
@@ -18,7 +18,7 @@
             <div class="inpfield"><span>Order Date:</span><input type="text" name="OrderDate" id="OrderDate" value="@Model.OrderDate" /></div>
             <div class="inpfield"><span>Order Cost:</span><input type="text" name="OrderCost" id="OrderCost" value="@Model.OrderCost" /></div>
            
-            <input type="submit" value="Update Order" />
+            <input type="submit" value="Update Order" /><!--To submit the updated values-->
         </form>
     </div>
     <div class="col2last"></div>

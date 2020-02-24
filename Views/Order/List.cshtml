@@ -4,19 +4,23 @@
 @{
     ViewBag.Title = "List";
 }
+<!--Here all the orders will be displayed -->
 <h2>List of Orders</h2>
 <div class="navbar">
     <a class="navlink" href="/Order/New">Add New</a>
 </div>
+<!--To seach a particular order -->
 <form method="GET" action="/Order/List">
+    <a class="navlink" href="/Order/List">Back to List</a>
     <input type="text" id="ordersearchkey" name="ordersearchkey" />
     <input type="submit" value="Search" />
 </form>
+<!-- To display order list which is stored in the database-->
 <div class="tilecontainer">
     @foreach (var order in @Model)
     {
     <div class="listitem">
-        <div><a href="/Order/Show/@order.OrderID">@order.OrderName</a></div>
+        <div><a href="/Order/Show/@order.OrderID">@order.OrderName</a></div><!-- link to go to the details of the order-->
         <div>Payment Type: @order.OrderPayType</div>
         <div>Order Date: @order.OrderDate</div>
         <div>Order Cost: @order.OrderCost</div>

@@ -2,9 +2,10 @@
 @{
     ViewBag.Title = "Add";
 }
-
+<!--Here we are adding a new customeer who can place orders and they have to give their personal details -->
 <h2>Add</h2>
 <a href="/Customer/List" class="navlink">Back to List</a>
+<!-- To add new customer the user would submit all the values and the value will be submitted using post method and then submitted-->
 <form method="POST" action="/Customer/Add">
     <div class="inpfield"><span>Name:</span><input type="text" id="CustomerName" name="CustomerName" /></div>
     <div class="inpfield"><span>Email:</span><input type="text" id="CustomerEmail" name="CustomerEmail" /></div>

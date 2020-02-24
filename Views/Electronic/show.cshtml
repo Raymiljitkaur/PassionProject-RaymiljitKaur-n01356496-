@@ -3,15 +3,17 @@
 @{
     ViewBag.Title = "Show";
 }
-
+<!--here we are displaying all the details of the electronic and also the details of the order they have been added to -->
 <h2>Show Electronic</h2>
+<!--Links to update and delete the electronic and also to go back to the main page -->
 <div class="navbar">
     <a class="navlink" href="/Electronic/List">Back to List</a>
     <a class="navlink" href="/Electronic/Update/@Model.Electronics.ElectronicID">Update</a>
     <a class="navlink" href="/Electronic/DeleteConfirm/@Model.Electronics.ElectronicID">Delete</a>
 </div>
-<div>
 
+<div>
+    <!--here in this column all the details for the electronics wiil be displayed -->
     <div class="col2">
 
         <div>Name : @Model.Electronics.ElectronicName</div>
@@ -26,6 +28,7 @@
         </div>
 
     </div>
+    <!--here in this column all the details for the orders to which this electronic is added  wiil be displayed showing its many to many relation -->
     <div class="col2last">
         <div class="sectionheader">Orders:</div>
         @{

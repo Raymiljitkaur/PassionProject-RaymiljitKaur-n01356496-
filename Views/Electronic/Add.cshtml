@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Add";
 }
-
+<!--Here we are adding electronics to the database-->
 <h2>Add Electronic</h2>
 
 <form method="POST" action="/Electronic/Add">
@@ -10,9 +10,11 @@
     <div class="inpfield"><span>Name:</span><input id="ElectronicName" type="text" name="ElectronicName" /></div>
     <div class="inpfield">
         <span>Brands:</span>
+        <!--here we are getting value brand name from the brand table which shows one tomany relation-->
         <select id="BrandID" type="text" name="BrandID">
             @{
-                
+                 <!--A rendering loop for presenting a list of brands
+                 The electronic should be one of these brands only.-->
                 foreach (var brands in Model)
                 {
                     <option value="@brands.BrandID">@brands.BrandName</option>
@@ -23,12 +25,6 @@
     </div>
     <div class="inpfield"><span>Type:</span><input id="ElectronicType" type="text" name="ElectronicType" /></div>
     <div class="inpfield"><span>Color:</span><input id="ElectronicColor" type="text" name="ElectronicColor" /></div>
-    <div class="inpfield">
-        Notes:
-        <textarea id="ElectronicDescription" name="ElectronicDescription">
-        </textarea>
-    </div>
-    <div class="inpfield">
-        <input type="submit" value="Add Electronic">
-    </div>
+    <div class="inpfield">  Notes:<textarea id="ElectronicDescription" name="ElectronicDescription">  </textarea> </div>
+    <div class="inpfield"> <input type="submit" value="Add Electronic"> </div><!--To submit values and add to database through post method-->
 </form>

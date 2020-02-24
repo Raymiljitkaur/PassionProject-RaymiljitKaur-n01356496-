@@ -4,15 +4,18 @@
 @{
     ViewBag.Title = "List";
 }
-
+<!--here all the customer list is displayed -->
 <h2>List</h2>
 <div class="navbar">
     <a href="/Customer/Add">Add New</a>
 </div>
+<!--This is part where the search functonality would be performed for the customer  -->
 <form method="GET" action="/Customer/List">
+    <a class="navlink" href="/Customer/List">Back to List</a>
     <input type="text" id="customersearchkey" name="customersearchkey" />
     <input type="submit" value="Search" />
 </form>
+<!--here using foreach all the values present in the database are displayed -->
 <div class="tilecontainer">
     @{
         foreach (var Customer in @Model)

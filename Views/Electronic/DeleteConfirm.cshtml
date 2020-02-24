@@ -2,11 +2,13 @@
 @{
     ViewBag.Title = "DeleteConfirm";
 }
-
+<!-- The functionality to delete  uses this interface -->
+<!-- Here the user is asked for the confirmation of and if they cancel then they are directed back to the show page-->
 <h2>Are you sure you want to delete @Model.ElectronicName?</h2>
 <div class="navbar">
     <a href="/Electronic/Show/@Model.ElectronicID">Cancel</a>
 </div>
+<!--here the electronics is deleted according to the id selected-->
 <form method="POST" action="/Electronic/Delete/@Model.ElectronicID">
     <div class="inpfield"><input type="submit" value="Confirm" /></div>
 </form>

@@ -1,8 +1,15 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: #B0FE6A;
+    color: darkgreen;
 }
-
+h2{
+    color:darkgreen;
+}
+a{
+    color:orangered;
+}
 
 .body-content {
     padding-left: 15px;
@@ -22,7 +29,7 @@ textarea {
 }
 
 .listitem {
-    background: #f3f3f3;
+    background: #ECF35D;
     padding: 10px;
     position: relative;
     width: 30%;

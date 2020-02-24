@@ -2,13 +2,15 @@
 @{
     ViewBag.Title = "Show";
 }
-
+    <a href="/Brand/List">Back to List</a>
 <h2>Show</h2>
+<!--This is interface to show all the details for the brand and also it has links for the updating and deleting the brand. -->
 <div class="navbar">
     <a class="navlink" href="/Brand/List">Back to List</a>
     <a class="navlink" href="/Brand/Update/@Model.BrandID">Update</a>
     <a class="navlink" href="/Brand/DeleteConfirm/@Model.BrandID">Delete</a>
 </div>
+<!--To display the brand name for the show function-->
 <div>
     <span>Name : </span>@Model.BrandName
 </div>

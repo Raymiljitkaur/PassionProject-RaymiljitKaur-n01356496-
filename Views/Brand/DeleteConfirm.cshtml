@@ -2,11 +2,13 @@
 @{
     ViewBag.Title = "DeleteConfirm";
 }
-
+<!--Here we are using two fuuction first is to confirm if we want to delete the and the seconf function would delete it for us-->
 <h2>Are you sure you want to delete @Model.BrandName?</h2>
+<!--Here this link would bring us back to the show page of the brand as if dont wan to deletethe particular entry.-->
 <div class="navbar">
     <a href="/Brand/Show/@Model.BrandID">Cancel</a>
 </div>
+<!--Here it would delete selected entry for the particular brandid-->
 <form method="POST" action="/Brand/Delete/@Model.BrandID">
     <div class="inpfield"><input type="submit" value="Confirm" /></div>
 </form>

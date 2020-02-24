@@ -2,13 +2,14 @@
 @{
     ViewBag.Title = "Show";
 }
-
+<!--It includes all the links for update and delete and also to go back to the main page-->
 <h2>Show</h2>
 <div class="navbar">
     <a class="navlink" href="/Customer/List">Back to List</a>
     <a class="navlink" href="/Customer/Update/@Model.CustomerID">Update</a>
     <a class="navlink" href="/Customer/DeleteConfirm/@Model.CustomerID">Delete</a>
 </div>
+<!--To display all the details of the customer given while adding a new customer -->
 <div class="col2">
     <div><span>Customer Name:</span> @Model.CustomerName</div>
     <div><span>Customer Email:</span>@Model.CustomerEmail</div>

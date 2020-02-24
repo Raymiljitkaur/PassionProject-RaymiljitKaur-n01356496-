@@ -2,11 +2,13 @@
 @{
     ViewBag.Title = "DeleteConfirm";
 }
-
+<!-- This is intrface to delete a order -->
 <h2>Are you sure you want to delete @Model.OrderName?</h2>
+<!--Link to the show page of the orders -->
 <div class="navbar">
     <a href="/Order/Show/@Model.OrderID">Cancel</a>
 </div>
+<!-- here the selected order will be deleted-->
 <form method="POST" action="/Order/Delete/@Model.OrderID">
     <div class="inpfield"><input type="submit" value="Confirm" /></div>
 </form>
